@@ -17,9 +17,9 @@ RUN dpkg --add-architecture i386 && apt-get update && \
     apt-get purge -y firefox
 
 # Install and configure FF ESR
-ADD https://ftp.mozilla.org/pub/firefox/releases/52.6.0esr/linux-x86_64/en-US/firefox-52.6.0esr.tar.bz2 /opt/
-ADD ./autoconfig.js /opt/firefox/browser/defaults/preferences/
-ADD ./mozilla.cfg /opt/firefox/
+RUN wget -O - https://ftp.mozilla.org/pub/firefox/releases/52.6.0esr/linux-x86_64/en-US/firefox-52.6.0esr.tar.bz2 /opt/firefox.tbz2 | tar -xjC /opt
+COPY ./autoconfig.js /opt/firefox/browser/defaults/preferences/
+COPY ./mozilla.cfg /opt/firefox/
 
 RUN export uid=1000 gid=1000 &&\
     mkdir -p /home/user &&\
@@ -33,3 +33,5 @@ USER user
 ENV HOME /home/user
 
 ENTRYPOINT ["/opt/firefox/firefox", "--no-remote", "--setDefaultBrowser"]
+# used for debugging. let me know if you know how to inspect an image
+#CMD /bin/bash
