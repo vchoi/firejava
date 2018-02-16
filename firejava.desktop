@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Firejava
+Exec=firejava
+#Icon=/some/icon.png
+Categories=Internet;Browser;
+Terminal=false
+StartupNotify=false
+StartupWMClass=firejava
+

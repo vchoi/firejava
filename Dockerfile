@@ -32,6 +32,8 @@ RUN export uid=1000 gid=1000 &&\
 USER user
 ENV HOME /home/user
 
+VOLUME /home/user
+
 ENTRYPOINT ["/opt/firefox/firefox", "--no-remote", "--setDefaultBrowser"]
-# used for debugging. let me know if you know how to inspect an image
+# used for debugging. let me know if you know a better way to inspect an image
 #CMD /bin/bash
