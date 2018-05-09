@@ -17,7 +17,7 @@ RUN dpkg --add-architecture i386 && apt-get update && \
     apt-get purge -y firefox
 
 # Install and configure FF ESR
-RUN wget -O - https://ftp.mozilla.org/pub/firefox/releases/52.6.0esr/linux-x86_64/en-US/firefox-52.6.0esr.tar.bz2 /opt/firefox.tbz2 | tar -xjC /opt
+RUN wget -O - https://ftp.mozilla.org/pub/firefox/releases/52.8.0esr/linux-x86_64/en-US/firefox-52.8.0esr.tar.bz2 /opt/firefox.tbz2 | tar -xjC /opt && rm -f /opt/firefox.tbz2
 COPY ./autoconfig.js /opt/firefox/browser/defaults/preferences/
 COPY ./mozilla.cfg /opt/firefox/
 
