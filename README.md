@@ -27,4 +27,4 @@ to the dock. I'm happier with the ALT+F2 shortcut, though.
 ## Known problems
 * Only works for uid 1000 (tipically, the first registered user on a Ubuntu
   installation).
-* Tested only on Ubuntu 17.10
+* Tested only on Ubuntu 17.10 and 18.04
